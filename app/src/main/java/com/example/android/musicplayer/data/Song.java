@@ -6,6 +6,17 @@ public class Song implements Serializable {
     private String mSongTitle;
     private String mArtistName;
     private String mAlbumName;
+    private static final int NO_ALBUM_ART = -1;
+    private int mAlbumArtId = NO_ALBUM_ART;
+//    private int mAlbumArtResourceId;
+
+//    public Song(String songTitle, String artistName, String albumName, int coverArt) {
+//        mSongTitle = songTitle;
+//        mArtistName = artistName;
+//        mAlbumName = albumName;
+//        mAlbumArtResourceId = coverArt;
+//    }
+
 
     public Song(String songTitle, String artistName, String albumName) {
         mSongTitle = songTitle;
@@ -29,6 +40,10 @@ public class Song implements Serializable {
         return this.mAlbumName;
     }
 
+    public int getmAlbumArtId() {
+        return mAlbumArtId;
+    }
+
     public void setSongTitle(String songTitle) {
         this.mSongTitle = songTitle;
     }
@@ -41,5 +56,8 @@ public class Song implements Serializable {
         this.mAlbumName = albumName;
     }
 
+//    public void setAlbumArtResourceID(int albumCoverResourceId) {
+//        this.mAlbumArtResourceId = albumCoverResourceId;
+//    }
 
 }

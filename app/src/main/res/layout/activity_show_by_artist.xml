@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    style="@style/main_layout">
 
     <TextView
         android:id="@+id/tv_artistsHeader"
@@ -11,8 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="16dp"
-        android:text="TextView"
-        android:textSize="22sp"
+        tools:text="Artist Name"
+        app:fontFamily="@font/electrolize"
+        android:textColor="@color/almost_white"
+        android:textSize="26sp"
         app:layout_constraintBottom_toTopOf="@+id/lv_songsByArtist"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,6 +23,7 @@
 
     <ListView
         android:id="@+id/lv_songsByArtist"
+        android:background="@color/lightMainBackground"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"

@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,11 +24,13 @@ public class SongListActivity extends AppCompatActivity {
 
         allSongs.add(new Song("Honky Tonk Women", "Rolling Stones"));
         allSongs.add(new Song("Cheap Sunglasses", "ZZTop"));
-        allSongs.add(new Song("Franklin's Tower", "Grateful Dead", "Shoreline 06-17-10"));
         allSongs.add(new Song("Eyes of the World", "Grateful Dead", "Shoreline 06-17-10"));
         allSongs.add(new Song("Ruben and Cerise", "Grateful Dead", "Shoreline 06-17-10"));
         allSongs.add(new Song("Standing on the Moon", "Grateful Dead", "Shoreline 06-17-10"));
+        allSongs.add(new Song("Help On The Way", "Grateful Dead", "Shoreline 06-17-10"));
+        allSongs.add(new Song("Franklin's Tower", "Grateful Dead", "Shoreline 06-17-10"));
         allSongs.add(new Song("Slipknot", "Grateful Dead", "Shoreline 06-17-10"));
+        allSongs.add(new Song("Estimated Prophet", "Grateful Dead", "Shoreline 06-17-10"));
         allSongs.add(new Song("One More Saturday Night", "Grateful Dead", "Shoreline 06-17-10"));
         allSongs.add(new Song("Reba", "Phish"));
         allSongs.add(new Song("Ester", "Phish"));
@@ -41,7 +42,6 @@ public class SongListActivity extends AppCompatActivity {
         final ListView listView = findViewById(R.id.lv_songsByArtist);
         listView.setAdapter(adapter);
 
-        final TextView artistName = findViewById(R.id.tv_nowPlaying_artistName);
         // click on song in listview to start NowPlayingActivity displaying song that was passed
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -51,6 +51,7 @@ public class SongListActivity extends AppCompatActivity {
                 // Song is serializable, pack it into the Intent
                 Intent i = new Intent(SongListActivity.this, NowPlaying.class);
                 i.putExtra("sentSong", currentSong);
+                i.putExtra("songList", allSongs);
                 startActivity(i);
             }
         });

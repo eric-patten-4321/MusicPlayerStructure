@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class ActivityShowByArtist extends AppCompatActivity {
 
     private String artistsName;
-    private ArrayList<Song> allSongs = new ArrayList<>();
+    private ArrayList<Song> songList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,35 +25,26 @@ public class ActivityShowByArtist extends AppCompatActivity {
         setContentView(R.layout.activity_show_by_artist);
 
         // get artist name and song name from click in NowPlaying
+        // get the whole songlist array from intent
         Intent i = getIntent();
         artistsName = i.getSerializableExtra("artistName").toString();
+        songList = (ArrayList<Song>) i.getSerializableExtra("songList");
         //initialize array to put other songs by artist into.
         ArrayList<Song> artistsList = new ArrayList<>();
         TextView artistHeader = findViewById(R.id.tv_artistsHeader);
 
-        // duplicate array of all songs. figure out how to use one array for all activities
-        allSongs.add(new Song("Honky Tonk Women", "Rolling Stones"));
-        allSongs.add(new Song("Cheap Sunglasses", "ZZTop"));
-        allSongs.add(new Song("Franklin's Tower", "Grateful Dead", "Shoreline 06-17-10"));
-        allSongs.add(new Song("Eyes of the World", "Grateful Dead", "Shoreline 06-17-10"));
-        allSongs.add(new Song("Ruben and Cerise", "Grateful Dead", "Shoreline 06-17-10"));
-        allSongs.add(new Song("Standing on the Moon", "Grateful Dead", "Shoreline 06-17-10"));
-        allSongs.add(new Song("Slipknot", "Grateful Dead", "Shoreline 06-17-10"));
-        allSongs.add(new Song("One More Saturday Night", "Grateful Dead", "Shoreline 06-17-10"));
-        allSongs.add(new Song("Reba", "Phish"));
-        allSongs.add(new Song("Ester", "Phish"));
-        allSongs.add(new Song("You Enjoy Myself", "Phish"));
-        allSongs.add(new Song("Wilson", "Phish"));
-        allSongs.add(new Song("Picture of Nectar", "Phish", "Picture of Nectar"));
-
-        for (int index = 0; index < allSongs.size(); index++) {
-            if (allSongs.get(index).getArtistName().equals(artistsName)) {
-                artistsList.add(allSongs.get(index));
+        //add songs from songList into artistList to display only songs by nowPlaying artist.
+        if (!songList.isEmpty()){
+            for (int index = 0; index < songList.size(); index++) {
+                if (songList.get(index).getArtistName().equals(artistsName)) {
+                    artistsList.add(songList.get(index));
+                }
             }
         }
 
+
         // get and display artists name at top of screen
-        artistHeader.setText(artistsList.get(0).getArtistName());
+        artistHeader.setText(artistsName);
 
         SongsByArtistAdapter adapter = new SongsByArtistAdapter(this, artistsList);
         final ListView listView = findViewById(R.id.lv_songsByArtist);
@@ -67,6 +58,8 @@ public class ActivityShowByArtist extends AppCompatActivity {
                 // Song is serializable, pack it into the Intent
                 Intent i = new Intent(ActivityShowByArtist.this, NowPlaying.class);
                 i.putExtra("sentSong", currentSong);
+                // put songList in to pass the whole array to next activity
+                i.putExtra("songList", songList);
                 startActivity(i);
             }
         });

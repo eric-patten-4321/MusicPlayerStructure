@@ -21,6 +21,8 @@ public class SongsByArtistAdapter extends ArrayAdapter<Song>{
         super(context, 0, songs);
     }
 
+    // TODO: 3/15/20 make activity_songs_by_artist and artist_view pretty 
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,11 +34,13 @@ public class SongAdapter extends ArrayAdapter<Song> {
         TextView songName = nowPlayingView.findViewById(R.id.tv_nowPlaying_songName);
         TextView artistName = nowPlayingView.findViewById(R.id.tv_nowPlaying_artistName);
         TextView albumName = nowPlayingView.findViewById(R.id.tv_nowPlaying_albumName);
+        ImageView albumArt = nowPlayingView.findViewById(R.id.imgView_albumArt);
 
         if (currentSong != null) {
             songName.setText(currentSong.getSongTitle());
             artistName.setText(currentSong.getArtistName());
             albumName.setText(currentSong.getAlbumName());
+
         }
 
         return nowPlayingView;

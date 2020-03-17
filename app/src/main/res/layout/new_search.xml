@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="8dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    style="@style/main_layout">
 
     <TextView
         android:id="@+id/textView2"
@@ -12,7 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:gravity="center"
+        android:textColor="@color/almost_white"
         android:text="Search for Song"
+        app:fontFamily="@font/electrolize"
         android:textAlignment="center"
         android:textSize="26sp" />
 
@@ -20,32 +22,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="4dp">
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="4dp"
+        style="@style/innerLinearLayoutStyle">
 
         <EditText
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:textAlignment="viewEnd"
-            android:layout_gravity="end"
-            android:ems="10"
-            android:layout_weight="1"
-            android:inputType="textPersonName"
+            android:id="@+id/et_searchSong"
+            style="@style/styleSearchEditText"
             android:hint="Song Title"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            style="@style/innerLinearLayoutStyle">
 
             <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/ic_search" />
+                android:id="@+id/btn_searchSong"
+                style="@style/styleSearchImageButton"
+                app:srcCompat="@drawable/ic_search"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -53,18 +48,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="4dp">
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="4dp"
+        style="@style/innerLinearLayoutStyle">
 
         <EditText
-            android:id="@+id/editText2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:textAlignment="viewEnd"
-            android:layout_gravity="end"
-            android:ems="10"
-            android:layout_weight="1"
-            android:inputType="textPersonName"
+            android:id="@+id/et_searchArtist"
+            style="@style/styleSearchEditText"
             android:hint="Artist Name"/>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -72,13 +63,9 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/ic_search" />
+                android:id="@+id/btn_searchArtist"
+                style="@style/styleSearchImageButton"
+                app:srcCompat="@drawable/ic_search"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -86,55 +73,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_margin="4dp">
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="4dp"
+        style="@style/innerLinearLayoutStyle">
 
         <EditText
-            android:id="@+id/editText3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:ems="10"
-            android:textAlignment="viewEnd"
-            android:layout_weight="1"
-            android:layout_gravity="end"
+            android:id="@+id/et_searchAlbum"
             android:hint="Album Title"
-            android:inputType="textPersonName" />
+            style="@style/styleSearchEditText"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/imageButton3"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="center_vertical"
-                android:layout_margin="4dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/ic_search" />
+                android:id="@+id/btn_searchAlbum"
+                style="@style/styleSearchImageButton"
+                app:srcCompat="@drawable/ic_search"/>
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp">
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Search Results"
-            android:layout_margin="8dp"
-            android:textAlignment="center"
-            android:gravity="center"
-            android:textSize="16sp"/>
-
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
 </LinearLayout>

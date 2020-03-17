@@ -40,3 +40,5 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
+// TODO: 3/16/20 start off on the song list, change clicks to link to album name list or artist name list. from those lists go to nowPlaying
+// from those lists go to nowPlaying if clicked on artist or list of songs on album if album clicked
