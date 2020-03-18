@@ -40,5 +40,7 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 
-// TODO: 3/16/20 start off on the song list, change clicks to link to album name list or artist name list. from those lists go to nowPlaying
+// TODO: 3/16/20 start off on the SONG LIST, change clicks to link to album name list or artist name list. from those lists go to nowPlaying
 // from those lists go to nowPlaying if clicked on artist or list of songs on album if album clicked
+// TODO: 3/17/20 this means - copy SongList.java code into MainActivity then delete songList. Wipe activity_main and copy activity_songs.xml into activity_main
+// TODO: 3/17/20 change all references to MainActivity inside all intents (or their respective references) that way songlist will getg loadaed first and fly around the app with all intents 
